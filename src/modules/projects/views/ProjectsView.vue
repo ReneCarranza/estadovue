@@ -72,4 +72,8 @@ const customModalOpen = ref(false);
 const onNewValue = (projectName: string) => {
   console.log({ projectName });
 };
+
+import { useProyectosStore } from '../store/projects.store';
+const proyectosStore = useProyectosStore();
+
 </script>

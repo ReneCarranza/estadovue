@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 interface Props {
   open: boolean;
@@ -39,8 +39,20 @@ interface Props {
   placeholder?: string;
 }
 
-defineProps<Props>();
-
+//defineProps<Props>();
+const props = defineProps<Props>();
+// Para activar el focus cuando cargue el modal
+  /*watch(() => props.open, (newValue) => {
+    if (newValue && inputRef.value) {
+      inputRef.value.focus();
+    }
+  });*/
+  watch(props, ({open})=> {
+    if (open) {
+      inputRef.value?.focus();
+    }
+  });
+  
 const emits = defineEmits<{
   close: [void];
   value: [text: string];

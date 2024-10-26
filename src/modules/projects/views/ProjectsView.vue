@@ -16,8 +16,8 @@
          <td>
           {{ proyecto.nombre }}</td>
          <td>
-          {{ proyecto.tareas }}
-          <button @click="incrementarTareas(i)" class="ml-2 btn btn-sm btn-secondary">+1</button></td>
+          {{ proyecto.tareas.length }}
+        </td>
          <td><progress :value="proyecto.progreso" class="progress progress-primary w-56"  max="100"></progress></td>
         </tr>
       </tbody>
@@ -85,7 +85,4 @@ const onNewValue = (nombreProyecto: string) => {
   //console.log({ proyectosStore });
 }
 
-const incrementarTareas = (i: number) => {
-  proyectosStore.incrementarTareas(i);
-}
 </script>

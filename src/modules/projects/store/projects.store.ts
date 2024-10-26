@@ -2,11 +2,11 @@ import { defineStore } from 'pinia';
 
 export const useProyectosStore = defineStore('proyectos', {
    state:() => ({
-    proyectos: [] as { nombre: string; tareas: number; progreso: number } [],
+    proyectos: [] as { id: string, nombre: string; tareas: number; progreso: number } [],
    }),
    actions: {
     agregarProyecto(nombreProyecto: string){
-        this.proyectos.push({ nombre: nombreProyecto, tareas: 0, progreso: 0 });
+        this.proyectos.push({ id: Date.now().toString(), nombre: nombreProyecto, tareas: 0, progreso: 0 });
     },
     incrementarTareas(i: number){
         const proyecto = this.proyectos[i];
